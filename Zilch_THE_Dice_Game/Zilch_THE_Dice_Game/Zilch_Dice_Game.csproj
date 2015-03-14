@@ -79,6 +79,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice1Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice2Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice3Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice4Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice5Top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice6Top.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

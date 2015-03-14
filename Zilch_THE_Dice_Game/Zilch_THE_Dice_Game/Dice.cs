@@ -12,17 +12,32 @@ namespace Zilch_Dice_Game
 {
     class Dice
     {
+		static string newLine = System.Environment.NewLine;
         private Image[] dicePics;
-        private int[] dice = { 1, 2, 3, 4, 5, 6 };    // Declare ints for dice 1 and dice 1 
+        private int[] dice; 
         private Random randomNum;         // Declare variable for a random number
         const int DICE_MAX = 6;         // Declare const int for dice number
-
+		private string[] TEXT_DICE = {newLine + " l ",                    // If rolls one
+                                       "l  " + newLine + newLine + "  l",    // Two
+                                       "l  " + newLine + " l " + newLine + "  l", // Three
+                                       "l l" + newLine + newLine + "l l",  // Four
+                                       "l l" + newLine + " l " + newLine + "l l",  // Five
+                                       "l l" + newLine + "l l" + newLine + "l l"  // Six
+                                     };
         // The Dice() Constructor
         // Purpose: Initialize data
         // Parameters: None
         // Returns: None
         public Dice()
         {
+			dice = new int[6];
+			dicePics = new Image[6];
+			dicePics[0] = Properties.Resources.Dice1;
+			dicePics[1] = Properties.Resources.Dice2;
+			dicePics[2] = Properties.Resources.Dice3;
+			dicePics[3] = Properties.Resources.Dice4;
+			dicePics[4] = Properties.Resources.Dice5;
+			dicePics[5] = Properties.Resources.Dice6;
             randomNum = new Random();
         }
 
@@ -30,24 +45,27 @@ namespace Zilch_Dice_Game
         // Purpose: Initialize data
         // Parameters: None
         // Returns: None
-        public void RollDice()
+        public int[] RollDice()
         {
             for (int i = 0; i < DICE_MAX; i++)
             {
                 dice[i] = randomNum.Next(1, DICE_MAX + 1);
             }
+			return dice;
         }
 
         // The GetDice() method
-        // Purpose: Gets the strings to make the dice in text boxes
-        // Parameters: 2 strings passed by reference
+        // Purpose: Returns the diceImages for the image boxes
+        // Parameters: integer array
         // Returns: None
-        public void GetDice(ref string str1, ref string str2)
+        public Image[] GetDiceImg(int[] dice)
         {
-            for (int i = 0; i < DICE_MAX; i++)
+			Image[] temp = new Image[6];
+            for (int i = 0; i < 6; i++)
             {
-                //str1 = MakeDice(dice[i]);
+				temp[i] = dicePics[dice[i] - 1]; 
             }
+			return temp;
         }
 
         // The triple() method
@@ -77,15 +95,6 @@ namespace Zilch_Dice_Game
         public bool fives()
         {
             return true;
-        }
-
-        // The diceImage() method
-        // Purpose: returns an image to match dice value
-        // Parameters: die value
-        // Returns: dice image
-        public Image diceImage(int diceNum)
-        {
-            return dicePics[diceNum - 1];
         }
     }
 }
