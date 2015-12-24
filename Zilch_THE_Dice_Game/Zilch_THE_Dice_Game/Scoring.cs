@@ -8,6 +8,6 @@ namespace Zilch_Dice_Game
 {
     class Scoring
     {
-
+        
     }
 }

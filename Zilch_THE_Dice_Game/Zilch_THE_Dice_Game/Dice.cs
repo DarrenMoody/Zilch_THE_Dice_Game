@@ -24,12 +24,17 @@ namespace Zilch_Dice_Game
                                        "l l" + newLine + " l " + newLine + "l l",  // Five
                                        "l l" + newLine + "l l" + newLine + "l l"  // Six
                                      };
+        int[] diceValues;
+        int[] diceCounter;
+        
+
         // The Dice() Constructor
         // Purpose: Initialize data
         // Parameters: None
         // Returns: None
-        public Dice()
-        {
+        public Dice() {
+            diceValues = new int[6] { 0, 0, 0, 0, 0, 0 };
+            diceCounter = new int[6] { 0, 0, 0, 0, 0, 0 };
 			dice = new int[6];
 			dicePics = new Image[6];
 			dicePics[0] = Properties.Resources.Dice1;
@@ -41,12 +46,37 @@ namespace Zilch_Dice_Game
             randomNum = new Random();
         }
 
+        private void setsCounters() {
+            for (int i = 0; i < diceValues.Length; i++)
+            {
+                switch (diceValues[i])
+                {
+                    case 1:
+                        diceCounter[0]++; // If randy = 1 adds one to ones
+                        break;
+                    case 2:
+                        diceCounter[1]++; // If randy = 2 adds one to twos
+                        break;
+                    case 3:
+                        diceCounter[2]++; // If randy = 3 adds one to threes
+                        break;
+                    case 4:
+                        diceCounter[3]++; // If randy = 4 adds one to fours
+                        break;
+                    case 5:
+                        diceCounter[4]++; // If randy = 5 adds one to fives
+                        break;
+                    case 6:
+                        diceCounter[5]++; // If randy = 6 adds one to sixes
+                        break;
+                }
+            }
+        }
         // The RollDice() method
         // Purpose: Initialize data
         // Parameters: None
         // Returns: None
-        public int[] RollDice()
-        {
+        public int[] RollDice() {
             for (int i = 0; i < DICE_MAX; i++)
             {
                 dice[i] = randomNum.Next(1, DICE_MAX + 1);
@@ -58,43 +88,13 @@ namespace Zilch_Dice_Game
         // Purpose: Returns the diceImages for the image boxes
         // Parameters: integer array
         // Returns: None
-        public Image[] GetDiceImg(int[] dice)
-        {
+        public Image[] GetDiceImg(int[] dice) {
 			Image[] temp = new Image[6];
             for (int i = 0; i < 6; i++)
             {
 				temp[i] = dicePics[dice[i] - 1]; 
             }
 			return temp;
-        }
-
-        // The triple() method
-        // Purpose: Test to see if there are three of same dice value
-        // Parameters: None
-        // Returns: True if there is a triple, else false
-        public bool triple()
-        {
-            return true;
-        }
-
-        // The ones() method
-        // Purpose: Test to see if dice are 1s
-        // Defines how to treat 1s in scoring
-        // Parameters: None
-        // Returns: True if dice is 1, else false
-        public bool ones()
-        {
-            return true;
-        }
-
-        // The fives() method
-        // Purpose: Test to see if dice are 5s
-        //          Defines how to treat 5s in scoring
-        // Parameters: None
-        // Returns: True if dice is 5, else false
-        public bool fives()
-        {
-            return true;
         }
     }
 }

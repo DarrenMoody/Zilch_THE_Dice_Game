@@ -38,10 +38,7 @@ namespace Zilch_Dice_Game
 			dicePics = myDice.GetDiceImg(diceVals);         // Gets the images for the imageboxes
 			for (int i = 0; i < 6; i++) {
 				diceBoxes[i].Image = dicePics[i];
-			}
-			/*if (myDice.BoxCars())
-			messageLabel.Text = "Three of a Kind!";
-			*/      
+			}    
 		}
     }
 }
