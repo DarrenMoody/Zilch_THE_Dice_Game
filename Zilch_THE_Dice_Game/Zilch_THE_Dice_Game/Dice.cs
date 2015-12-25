@@ -15,15 +15,15 @@ namespace Zilch_Dice_Game
 		static string newLine = System.Environment.NewLine;
         private Image[] dicePics;
         private int[] dice; 
-        private Random randomNum;         // Declare variable for a random number
+        private Random random;         // Declare variable for a random number
         const int DICE_MAX = 6;         // Declare const int for dice number
-		private string[] TEXT_DICE = {newLine + " l ",                    // If rolls one
+		/*DEPRECATED-private string[] TEXT_DICE = {newLine + " l ",                    // If rolls one
                                        "l  " + newLine + newLine + "  l",    // Two
                                        "l  " + newLine + " l " + newLine + "  l", // Three
                                        "l l" + newLine + newLine + "l l",  // Four
                                        "l l" + newLine + " l " + newLine + "l l",  // Five
                                        "l l" + newLine + "l l" + newLine + "l l"  // Six
-                                     };
+                                     };*/
         int[] diceValues;
         int[] diceCounter;
         
@@ -35,7 +35,6 @@ namespace Zilch_Dice_Game
         public Dice() {
             diceValues = new int[6] { 0, 0, 0, 0, 0, 0 };
             diceCounter = new int[6] { 0, 0, 0, 0, 0, 0 };
-			dice = new int[6];
 			dicePics = new Image[6];
 			dicePics[0] = Properties.Resources.Dice1;
 			dicePics[1] = Properties.Resources.Dice2;
@@ -43,7 +42,7 @@ namespace Zilch_Dice_Game
 			dicePics[3] = Properties.Resources.Dice4;
 			dicePics[4] = Properties.Resources.Dice5;
 			dicePics[5] = Properties.Resources.Dice6;
-            randomNum = new Random();
+            random = new Random();
         }
 
         private void setsCounters() {
@@ -79,9 +78,9 @@ namespace Zilch_Dice_Game
         public int[] RollDice() {
             for (int i = 0; i < DICE_MAX; i++)
             {
-                dice[i] = randomNum.Next(1, DICE_MAX + 1);
+                diceValues[i] = random.Next(1, DICE_MAX + 1);
             }
-			return dice;
+			return diceValues;
         }
 
         // The GetDice() method

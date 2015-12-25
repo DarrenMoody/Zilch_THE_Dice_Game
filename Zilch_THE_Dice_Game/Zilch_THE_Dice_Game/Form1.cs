@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Zilch_Dice_Game
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form    // AKA: the View
     {
 		Dice myDice;
 		private PictureBox[] diceBoxes;
@@ -27,7 +27,13 @@ namespace Zilch_Dice_Game
 			diceBoxes[3] = picDice4;
 			diceBoxes[4] = picDice5;
 			diceBoxes[5] = picDice6;
-			dicePics = new Image[6];
+            keep1Btn.Enabled = false;
+            keep2Btn.Enabled = false;
+            keep3Btn.Enabled = false;
+            keep4Btn.Enabled = false;
+            keep5Btn.Enabled = false;
+            keep6Btn.Enabled = false;
+            dicePics = new Image[6];
 			diceVals = new int[6];
 			myDice = new Dice();
         }
@@ -40,5 +46,35 @@ namespace Zilch_Dice_Game
 				diceBoxes[i].Image = dicePics[i];
 			}    
 		}
+
+        private void keep1Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keep2Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keep3Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keep4Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keep5Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keep6Btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
