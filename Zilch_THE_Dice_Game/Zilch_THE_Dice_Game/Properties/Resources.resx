@@ -139,4 +139,25 @@
   <data name="Blank_Die" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blank_Die.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Dice1On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice1On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice2On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice2On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice3On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice3On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice4On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice4On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice5On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice5On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice6On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice6On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diceicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\diceicon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

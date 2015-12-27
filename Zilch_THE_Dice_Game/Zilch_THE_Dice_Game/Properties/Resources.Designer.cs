@@ -83,9 +83,29 @@ namespace Zilch_Dice_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dice1On {
+            get {
+                object obj = ResourceManager.GetObject("Dice1On", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dice2 {
             get {
                 object obj = ResourceManager.GetObject("Dice2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice2On {
+            get {
+                object obj = ResourceManager.GetObject("Dice2On", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,29 @@ namespace Zilch_Dice_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dice3On {
+            get {
+                object obj = ResourceManager.GetObject("Dice3On", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dice4 {
             get {
                 object obj = ResourceManager.GetObject("Dice4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice4On {
+            get {
+                object obj = ResourceManager.GetObject("Dice4On", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,10 +163,40 @@ namespace Zilch_Dice_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dice5On {
+            get {
+                object obj = ResourceManager.GetObject("Dice5On", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dice6 {
             get {
                 object obj = ResourceManager.GetObject("Dice6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice6On {
+            get {
+                object obj = ResourceManager.GetObject("Dice6On", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon diceicon {
+            get {
+                object obj = ResourceManager.GetObject("diceicon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }
