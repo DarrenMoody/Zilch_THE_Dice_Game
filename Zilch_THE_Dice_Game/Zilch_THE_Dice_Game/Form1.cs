@@ -11,22 +11,42 @@ using System.Windows.Forms;
 namespace Zilch_Dice_Game {
 	public partial class Form1 : Form {   // AKA: the View
 
+		// static Global Form1 components
+		public static Button[] btnPoints;
+		public static Button[] keepBtns;
+		public static PictureBox[] diceBoxes;
+		public static TextBox totalPtsBox;
+		public static TextBox turnPtsBox;
+		public static TextBox rollPtsBox;
+		public static Button btnRoll;
+
 		public Scoring score;
 		public Dice dice;
-		public PictureBox[] diceBoxes;
-		public Image[] dicePics;
-		public int[] diceVals;
+		
+		
 
 		public Form1() {
 			InitializeComponent();
+			btnRoll = rollBtn;
 			diceBoxes = new PictureBox[6] { picDice1, picDice2, picDice3,
 											picDice4, picDice5, picDice6 };
-			/*keep1Btn.Enabled = false;
+			keepBtns = new Button[6] { keep1Btn, keep2Btn, keep3Btn,
+										keep4Btn, keep5Btn, keep6Btn };
+            keep1Btn.Enabled = false;
 			keep2Btn.Enabled = false;
 			keep3Btn.Enabled = false;
 			keep4Btn.Enabled = false;
 			keep5Btn.Enabled = false;
-			keep6Btn.Enabled = false;*/
+			keep6Btn.Enabled = false;
+			btnPoints = new Button[5];
+			btnPoints[0] = btnPoints1;
+			btnPoints[1] = btnPoints2;
+			btnPoints[2] = btnPoints3;
+			btnPoints[3] = btnPoints4;
+			btnPoints[4] = btnPoints5;
+			totalPtsBox = txtBoxTotalPoints;
+			turnPtsBox = txtBoxTurnPoints;
+			rollPtsBox = txtBoxRollPoints;
 			score = new Scoring();
 			dice = new Dice();
 		}
@@ -57,6 +77,18 @@ namespace Zilch_Dice_Game {
 
 		private void keep6Btn_Click(object sender, EventArgs e) {
 			score.keep(5, diceBoxes);
+		}
+
+		public Button[] getPtsBtns() {
+			return btnPoints;
+		}
+
+		private void exitToolStripMenuItem1_Click(object sender, EventArgs e) {
+			this.Close();
+		}
+
+		private void bankBtn_Click(object sender, EventArgs e) {
+			score.bank();
 		}
 	}
 }
