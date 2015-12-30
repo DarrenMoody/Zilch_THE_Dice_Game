@@ -20,12 +20,11 @@ namespace Zilch_Dice_Game {
 		Dice dice;
 
 		// Other Arrays
-		bool[] on; // true = dice kept, false = dice not kept
-		Image[] diceOnPics;
 		int[] numClicks;
 		Button[] btnPoints = Form1.btnPoints;
 		Button[] keepBtns = Form1.keepBtns;
 		int[] diceValues = Dice.diceValues;
+		int[] scorePos = new int[6];
 		int[,] btnPointsCheck;
 
 		int totalTurnScore = 0, totalGameScore = 0;
@@ -43,14 +42,10 @@ namespace Zilch_Dice_Game {
 		// Integer variables declared to hold the dices face values for a 3-of-a-kind etc.
 		int value6Kind = 0, value5Kind = 0, value4Kind = 0, value3Kind = 0, value23Kind = 0,
 			fhVal2 = 0, fhVal1 = 0;
-		int[] scorePos = new int[6];
+		
 
 		public Scoring() {
 			diceCounter = new int[6] { 0, 0, 0, 0, 0, 0 };
-			on = new bool[6] { false, false, false, false, false, false };
-			diceOnPics = new Image[6] {Properties.Resources.Dice1On, Properties.Resources.Dice2On,
-										Properties.Resources.Dice3On, Properties.Resources.Dice4On,
-										Properties.Resources.Dice5On, Properties.Resources.Dice6On };
 			numClicks = new int[6] { 0, 0, 0, 0, 0, 0 };
 			// btnPointsCheck [ 6 rows hold positions of dice worth points,
 			//                  5 columns determine which btnPoints(1-5) ]
@@ -58,24 +53,7 @@ namespace Zilch_Dice_Game {
 			btnPointsCheck = new int[6, 5];
 		}
 
-		public void keep(int btnNum, PictureBox[] diceBoxes) {
-			for (int i = 0; i < 6; i++) {
-				if (btnNum == i && on[i] == false) { // if not on get on pic
-					diceBoxes[i].Image = diceOnPics[Dice.diceValues[i]];
-					on[i] = true;
-				} else if (btnNum == i && on[i] == true) { // if on, go back to off pic
-					diceBoxes[i].Image = Dice.dicePics[Dice.diceValues[i]];
-					on[i] = false;
-				}
-			}
-		}
-
-
-		public void setPtsBtns() {
-			for (int i = 0; i < 6; i++) {
-				this.btnPoints[i] = Form1.btnPoints[i];
-			}
-		}
+		
 		
 		
 		// Name: The Zilch() Method
@@ -89,7 +67,7 @@ namespace Zilch_Dice_Game {
 
 			for (int i = 0; i < 6; i++) {
 				keepBtns[i].Enabled = false;
-				on[i] = false;
+				Dice.on[i] = false;
 				diceValues[i] = 0;
 				Form1.diceBoxes[i].Image = Properties.Resources.Blank_Die;
 			}
@@ -159,7 +137,7 @@ namespace Zilch_Dice_Game {
 		// Parameters: none
 		// Returns: none
 		// Note: This will be chopped into several smaller methods in future versions
-		private void scoringTraverse() { // DARREN - ***********************
+		public void scoringTraverse() { // DARREN - ***********************
 	   
 			/*  ************** SCORING POSSIBILITIES **************
             1.	Straight (dice = 1, 2, 3, 4, 5, 6) = 1500 pts.
@@ -179,8 +157,6 @@ namespace Zilch_Dice_Game {
             6.	Lone FIVES = 50 pts each
             7.	If nothing = ZILCH
             */
-
-			setPtsBtns(); // 1st Borrow pop-up points buttons from Form1
 
 			for (int i = 0; i < diceCounter.Length; i++) {
 				if (diceCounter[0] == 1 &&

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.bankBtn = new System.Windows.Forms.Button();
 			this.rollBtn = new System.Windows.Forms.Button();
@@ -64,6 +65,13 @@
 			this.txtBoxRollPoints = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.Timer1 = new System.Windows.Forms.Timer(this.components);
+			this.Timer2 = new System.Windows.Forms.Timer(this.components);
+			this.Timer3 = new System.Windows.Forms.Timer(this.components);
+			this.Timer4 = new System.Windows.Forms.Timer(this.components);
+			this.Timer5 = new System.Windows.Forms.Timer(this.components);
+			this.Timer6 = new System.Windows.Forms.Timer(this.components);
+			this.DiceTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.picDice6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picDice5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picDice4)).BeginInit();
@@ -402,6 +410,34 @@
 			this.label3.TabIndex = 67;
 			this.label3.Text = "Turn Total Points";
 			// 
+			// Timer1
+			// 
+			this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+			// 
+			// Timer2
+			// 
+			this.Timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+			// 
+			// Timer3
+			// 
+			this.Timer3.Tick += new System.EventHandler(this.Timer3_Tick);
+			// 
+			// Timer4
+			// 
+			this.Timer4.Tick += new System.EventHandler(this.Timer4_Tick);
+			// 
+			// Timer5
+			// 
+			this.Timer5.Tick += new System.EventHandler(this.Timer5_Tick);
+			// 
+			// Timer6
+			// 
+			this.Timer6.Tick += new System.EventHandler(this.Timer6_Tick);
+			// 
+			// DiceTimer
+			// 
+			this.DiceTimer.Interval = 1000;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +524,13 @@
 		private System.Windows.Forms.TextBox txtBoxRollPoints;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Timer Timer1;
+		private System.Windows.Forms.Timer Timer2;
+		private System.Windows.Forms.Timer Timer3;
+		private System.Windows.Forms.Timer Timer4;
+		private System.Windows.Forms.Timer Timer5;
+		private System.Windows.Forms.Timer Timer6;
+		private System.Windows.Forms.Timer DiceTimer;
 	}
 }
 
