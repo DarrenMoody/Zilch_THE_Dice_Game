@@ -158,6 +158,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="diceicon.ico" />
+    <None Include="Resources\smb_win.wav" />
+    <None Include="Resources\smb_jump.wav" />
+    <None Include="Resources\smb_fireball.wav" />
+    <None Include="Resources\smb_bump.wav" />
+    <None Include="Resources\ShakingDiceInHand.wav" />
+    <None Include="Resources\RollDiceHitTable.wav" />
+    <None Include="Resources\mariodie.wav" />
+    <None Include="Resources\ChaChing.wav" />
     <None Include="Resources\diceBack.jpg" />
     <None Include="Resources\zilch.png" />
     <None Include="Resources\YourBankedPoints.PNG" />

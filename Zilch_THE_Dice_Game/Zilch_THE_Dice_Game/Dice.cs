@@ -25,7 +25,7 @@ namespace Zilch_Dice_Game
 		Image[] diceOnPics;
 		// public variables
 		public Random random;         // Declare variable for a random number
-
+		public Scoring score;
 		
 
 
@@ -42,6 +42,7 @@ namespace Zilch_Dice_Game
 			diceOnPics = new Image[6] {Properties.Resources.Dice1On, Properties.Resources.Dice2On,
 										Properties.Resources.Dice3On, Properties.Resources.Dice4On,
 										Properties.Resources.Dice5On, Properties.Resources.Dice6On };
+			score = new Scoring();
 			random = new Random();
 		}
 
@@ -57,14 +58,15 @@ namespace Zilch_Dice_Game
 					on[i] = false;
 				}
 			}
+
 		}
 
 		// The RollDice() method
 		// Purpose: Gets Value of dice, counts number of each value, sets images on form1 picture boxes
 		// Parameters: None
 		// Returns: int[] dice values
-		public int[] RollDice(PictureBox[] pb) {
-			enableKeepers();
+		public int[] RollDice(PictureBox[] pb) { // SETS COUNTERS HERE
+			
 			for (int i = 0; i < DICE_MAX; i++) {
 				if (on[i] == false) {
 					Form1.timers[i].Stop();
@@ -73,6 +75,8 @@ namespace Zilch_Dice_Game
 					pb[i].Image = dicePics[diceValues[i]];
 				}
             }
+			enableKeepers();
+			score.scoringTraverse();
 			Form1.btnRoll.Enabled = true;
 			return diceValues;
 		}

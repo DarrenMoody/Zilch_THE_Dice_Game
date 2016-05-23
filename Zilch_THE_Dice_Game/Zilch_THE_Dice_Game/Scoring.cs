@@ -23,10 +23,10 @@ namespace Zilch_Dice_Game {
 		Button[] btnPoints = Form1.btnPoints;
 		Button[] keepBtns = Form1.keepBtns;
 		int[] diceValues = Dice.diceValues;
-		int[] scorePos = new int[6];
-		int[,] btnPointsCheck;
+		public int[] scorePos = new int[6];
+		public int[,] btnPointsCheck;
 
-		int totalTurnScore = 0, totalGameScore = 0;
+		public int totalTurnScore = 0, totalGameScore = 0;
 
 		// Boolean variables declared for testing the state of a set of dice
 		bool sixKind = false, fiveKind = false, fourKind = false, threeKind = false,
@@ -67,7 +67,7 @@ namespace Zilch_Dice_Game {
 			for (int i = 0; i < 6; i++) {
 				keepBtns[i].Enabled = false;
 				Dice.on[i] = false;
-				diceValues[i] = 0;
+				Dice.diceValues[i] = 0;
 				Form1.diceBoxes[i].Image = Properties.Resources.Blank_Die;
 			}
 
@@ -90,10 +90,13 @@ namespace Zilch_Dice_Game {
 				diceCounter[i] = 0;
 				diceValues[i] = 0;
 				scorePos[i] = 0;
-				btnPoints[i].Enabled = false;
-				btnPoints[i].Visible = false;
+				
 				for (int j = 0; j < 5; j++) {
 					btnPointsCheck[i, j] = 0; // btnPointsCheck[ 6, 5 ]
+					if (i == 0) {
+						btnPoints[j].Enabled = false;
+						btnPoints[j].Visible = false;
+					}
 				}
 			}
 

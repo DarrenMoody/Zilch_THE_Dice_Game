@@ -145,9 +145,6 @@
   <data name="Dice3On" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dice3On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Dice6On" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dice6On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,5 +210,29 @@
   </data>
   <data name="diceBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diceBack.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChaChing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChaChing.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mariodie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mariodie.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RollDiceHitTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RollDiceHitTable.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ShakingDiceInHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShakingDiceInHand.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb_bump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb_bump.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb_fireball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb_fireball.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb_jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb_jump.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="smb_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smb_win.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
