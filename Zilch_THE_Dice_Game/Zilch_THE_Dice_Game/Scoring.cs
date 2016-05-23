@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Zilch_Dice_Game {
 
-
 	public class Scoring { 
 
 		// Global project variables

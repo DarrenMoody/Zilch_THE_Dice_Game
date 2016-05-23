@@ -72,6 +72,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scoring.cs" />
@@ -157,6 +158,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="diceicon.ico" />
+    <None Include="Resources\diceBack.jpg" />
+    <None Include="Resources\zilch.png" />
+    <None Include="Resources\YourBankedPoints.PNG" />
+    <None Include="Resources\ThreePairs.PNG" />
+    <None Include="Resources\ThreeofaKind.PNG" />
+    <None Include="Resources\ThisRollsPoints.PNG" />
+    <None Include="Resources\Straight.PNG" />
+    <None Include="Resources\probabilities.PNG" />
+    <None Include="Resources\FullHouse.png" />
+    <None Include="Resources\FourofaKind.PNG" />
+    <None Include="Resources\die6.png" />
+    <None Include="Resources\die5.png" />
+    <None Include="Resources\die4.png" />
+    <None Include="Resources\die3.png" />
+    <None Include="Resources\die2.png" />
+    <None Include="Resources\die1.png" />
+    <None Include="Resources\background.jpg" />
+    <None Include="Resources\10000toWin.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

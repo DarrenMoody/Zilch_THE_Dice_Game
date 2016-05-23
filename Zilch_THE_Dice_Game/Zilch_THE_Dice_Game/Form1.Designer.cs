@@ -64,7 +64,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtBoxRollPoints = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
 			this.Timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Timer2 = new System.Windows.Forms.Timer(this.components);
 			this.Timer3 = new System.Windows.Forms.Timer(this.components);
@@ -72,6 +71,15 @@
 			this.Timer5 = new System.Windows.Forms.Timer(this.components);
 			this.Timer6 = new System.Windows.Forms.Timer(this.components);
 			this.DiceTimer = new System.Windows.Forms.Timer(this.components);
+			this.label4 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.picDice6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picDice5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picDice4)).BeginInit();
@@ -84,20 +92,24 @@
 			// bankBtn
 			// 
 			this.bankBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.bankBtn.Location = new System.Drawing.Point(325, 456);
+			this.bankBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.bankBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.bankBtn.Font = new System.Drawing.Font("Magneto", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.bankBtn.Location = new System.Drawing.Point(327, 578);
 			this.bankBtn.Name = "bankBtn";
-			this.bankBtn.Size = new System.Drawing.Size(132, 40);
+			this.bankBtn.Size = new System.Drawing.Size(222, 67);
 			this.bankBtn.TabIndex = 13;
-			this.bankBtn.Text = "Bank Points &\r\nEnd Turn";
+			this.bankBtn.Text = "Bank Points and\r\nEnd Turn";
 			this.bankBtn.UseVisualStyleBackColor = true;
 			this.bankBtn.Click += new System.EventHandler(this.bankBtn_Click);
 			// 
 			// rollBtn
 			// 
 			this.rollBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.rollBtn.Location = new System.Drawing.Point(288, 262);
+			this.rollBtn.Font = new System.Drawing.Font("Magneto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.rollBtn.Location = new System.Drawing.Point(337, 262);
 			this.rollBtn.Name = "rollBtn";
-			this.rollBtn.Size = new System.Drawing.Size(206, 54);
+			this.rollBtn.Size = new System.Drawing.Size(212, 54);
 			this.rollBtn.TabIndex = 12;
 			this.rollBtn.Text = "Roll the Dice!";
 			this.rollBtn.UseVisualStyleBackColor = true;
@@ -108,7 +120,7 @@
 			this.messageLabel.AutoSize = true;
 			this.messageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.messageLabel.Location = new System.Drawing.Point(313, 29);
+			this.messageLabel.Location = new System.Drawing.Point(846, 36);
 			this.messageLabel.MaximumSize = new System.Drawing.Size(150, 50);
 			this.messageLabel.MinimumSize = new System.Drawing.Size(150, 50);
 			this.messageLabel.Name = "messageLabel";
@@ -119,9 +131,13 @@
 			// 
 			// keep4Btn
 			// 
-			this.keep4Btn.Location = new System.Drawing.Point(409, 212);
+			this.keep4Btn.AutoSize = true;
+			this.keep4Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep4Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep4Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep4Btn.Location = new System.Drawing.Point(406, 212);
 			this.keep4Btn.Name = "keep4Btn";
-			this.keep4Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep4Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep4Btn.TabIndex = 55;
 			this.keep4Btn.Text = "Keep Die 4";
 			this.keep4Btn.UseVisualStyleBackColor = true;
@@ -129,9 +145,13 @@
 			// 
 			// keep2Btn
 			// 
-			this.keep2Btn.Location = new System.Drawing.Point(196, 212);
+			this.keep2Btn.AutoSize = true;
+			this.keep2Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep2Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep2Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep2Btn.Location = new System.Drawing.Point(193, 212);
 			this.keep2Btn.Name = "keep2Btn";
-			this.keep2Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep2Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep2Btn.TabIndex = 54;
 			this.keep2Btn.Text = "Keep Die 2";
 			this.keep2Btn.UseVisualStyleBackColor = true;
@@ -139,9 +159,13 @@
 			// 
 			// keep6Btn
 			// 
-			this.keep6Btn.Location = new System.Drawing.Point(621, 212);
+			this.keep6Btn.AutoSize = true;
+			this.keep6Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep6Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep6Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep6Btn.Location = new System.Drawing.Point(618, 212);
 			this.keep6Btn.Name = "keep6Btn";
-			this.keep6Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep6Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep6Btn.TabIndex = 53;
 			this.keep6Btn.Text = "Keep Die 6";
 			this.keep6Btn.UseVisualStyleBackColor = true;
@@ -149,9 +173,13 @@
 			// 
 			// keep5Btn
 			// 
-			this.keep5Btn.Location = new System.Drawing.Point(515, 212);
+			this.keep5Btn.AutoSize = true;
+			this.keep5Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep5Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep5Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep5Btn.Location = new System.Drawing.Point(512, 212);
 			this.keep5Btn.Name = "keep5Btn";
-			this.keep5Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep5Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep5Btn.TabIndex = 52;
 			this.keep5Btn.Text = "Keep Die 5";
 			this.keep5Btn.UseVisualStyleBackColor = true;
@@ -159,9 +187,13 @@
 			// 
 			// keep3Btn
 			// 
-			this.keep3Btn.Location = new System.Drawing.Point(302, 212);
+			this.keep3Btn.AutoSize = true;
+			this.keep3Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep3Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep3Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep3Btn.Location = new System.Drawing.Point(299, 212);
 			this.keep3Btn.Name = "keep3Btn";
-			this.keep3Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep3Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep3Btn.TabIndex = 51;
 			this.keep3Btn.Text = "Keep Die 3";
 			this.keep3Btn.UseVisualStyleBackColor = true;
@@ -169,9 +201,13 @@
 			// 
 			// keep1Btn
 			// 
-			this.keep1Btn.Location = new System.Drawing.Point(90, 212);
+			this.keep1Btn.AutoSize = true;
+			this.keep1Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.keep1Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.keep1Btn.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.keep1Btn.Location = new System.Drawing.Point(87, 212);
 			this.keep1Btn.Name = "keep1Btn";
-			this.keep1Btn.Size = new System.Drawing.Size(69, 23);
+			this.keep1Btn.Size = new System.Drawing.Size(79, 27);
 			this.keep1Btn.TabIndex = 50;
 			this.keep1Btn.Text = "Keep Die 1";
 			this.keep1Btn.UseVisualStyleBackColor = true;
@@ -251,48 +287,78 @@
 			// 
 			// btnPoints5
 			// 
-			this.btnPoints5.Location = new System.Drawing.Point(45, 404);
+			this.btnPoints5.BackColor = System.Drawing.SystemColors.WindowText;
+			this.btnPoints5.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPoints5.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.btnPoints5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.btnPoints5.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPoints5.ForeColor = System.Drawing.Color.OrangeRed;
+			this.btnPoints5.Location = new System.Drawing.Point(45, 460);
 			this.btnPoints5.Name = "btnPoints5";
-			this.btnPoints5.Size = new System.Drawing.Size(200, 26);
+			this.btnPoints5.Size = new System.Drawing.Size(246, 40);
 			this.btnPoints5.TabIndex = 60;
 			this.btnPoints5.Text = "btnPoints5";
-			this.btnPoints5.UseVisualStyleBackColor = true;
+			this.btnPoints5.UseVisualStyleBackColor = false;
 			// 
 			// btnPoints4
 			// 
-			this.btnPoints4.Location = new System.Drawing.Point(45, 372);
+			this.btnPoints4.BackColor = System.Drawing.SystemColors.WindowText;
+			this.btnPoints4.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPoints4.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.btnPoints4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.btnPoints4.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPoints4.ForeColor = System.Drawing.Color.OrangeRed;
+			this.btnPoints4.Location = new System.Drawing.Point(45, 414);
 			this.btnPoints4.Name = "btnPoints4";
-			this.btnPoints4.Size = new System.Drawing.Size(200, 26);
+			this.btnPoints4.Size = new System.Drawing.Size(246, 40);
 			this.btnPoints4.TabIndex = 59;
 			this.btnPoints4.Text = "btnPoints4";
-			this.btnPoints4.UseVisualStyleBackColor = true;
+			this.btnPoints4.UseVisualStyleBackColor = false;
 			// 
 			// btnPoints3
 			// 
-			this.btnPoints3.Location = new System.Drawing.Point(45, 340);
+			this.btnPoints3.BackColor = System.Drawing.SystemColors.WindowText;
+			this.btnPoints3.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPoints3.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.btnPoints3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.btnPoints3.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPoints3.ForeColor = System.Drawing.Color.OrangeRed;
+			this.btnPoints3.Location = new System.Drawing.Point(45, 368);
 			this.btnPoints3.Name = "btnPoints3";
-			this.btnPoints3.Size = new System.Drawing.Size(200, 26);
+			this.btnPoints3.Size = new System.Drawing.Size(246, 40);
 			this.btnPoints3.TabIndex = 58;
 			this.btnPoints3.Text = "btnPoints3";
-			this.btnPoints3.UseVisualStyleBackColor = true;
+			this.btnPoints3.UseVisualStyleBackColor = false;
 			// 
 			// btnPoints2
 			// 
-			this.btnPoints2.Location = new System.Drawing.Point(45, 308);
+			this.btnPoints2.BackColor = System.Drawing.SystemColors.WindowText;
+			this.btnPoints2.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPoints2.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.btnPoints2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.btnPoints2.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPoints2.ForeColor = System.Drawing.Color.OrangeRed;
+			this.btnPoints2.Location = new System.Drawing.Point(45, 322);
 			this.btnPoints2.Name = "btnPoints2";
-			this.btnPoints2.Size = new System.Drawing.Size(200, 26);
+			this.btnPoints2.Size = new System.Drawing.Size(246, 40);
 			this.btnPoints2.TabIndex = 57;
 			this.btnPoints2.Text = "btnPoints2";
-			this.btnPoints2.UseVisualStyleBackColor = true;
+			this.btnPoints2.UseVisualStyleBackColor = false;
 			// 
 			// btnPoints1
 			// 
+			this.btnPoints1.BackColor = System.Drawing.SystemColors.WindowText;
+			this.btnPoints1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPoints1.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+			this.btnPoints1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+			this.btnPoints1.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnPoints1.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints1.Location = new System.Drawing.Point(45, 276);
 			this.btnPoints1.Name = "btnPoints1";
-			this.btnPoints1.Size = new System.Drawing.Size(200, 26);
+			this.btnPoints1.Size = new System.Drawing.Size(246, 40);
 			this.btnPoints1.TabIndex = 56;
 			this.btnPoints1.Text = "btnPoints1";
-			this.btnPoints1.UseVisualStyleBackColor = true;
+			this.btnPoints1.UseVisualStyleBackColor = false;
 			// 
 			// menuStrip1
 			// 
@@ -301,7 +367,7 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
 			this.menuStrip1.TabIndex = 61;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -364,51 +430,62 @@
 			// 
 			// txtBoxTurnPoints
 			// 
-			this.txtBoxTurnPoints.Location = new System.Drawing.Point(326, 410);
+			this.txtBoxTurnPoints.BackColor = System.Drawing.SystemColors.WindowText;
+			this.txtBoxTurnPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.txtBoxTurnPoints.Font = new System.Drawing.Font("Magneto", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBoxTurnPoints.ForeColor = System.Drawing.Color.OrangeRed;
+			this.txtBoxTurnPoints.Location = new System.Drawing.Point(349, 506);
 			this.txtBoxTurnPoints.Name = "txtBoxTurnPoints";
-			this.txtBoxTurnPoints.Size = new System.Drawing.Size(132, 20);
+			this.txtBoxTurnPoints.Size = new System.Drawing.Size(190, 66);
 			this.txtBoxTurnPoints.TabIndex = 62;
+			this.txtBoxTurnPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// txtBoxTotalPoints
 			// 
-			this.txtBoxTotalPoints.Location = new System.Drawing.Point(618, 308);
+			this.txtBoxTotalPoints.BackColor = System.Drawing.SystemColors.WindowText;
+			this.txtBoxTotalPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.txtBoxTotalPoints.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBoxTotalPoints.ForeColor = System.Drawing.Color.OrangeRed;
+			this.txtBoxTotalPoints.Location = new System.Drawing.Point(780, 122);
 			this.txtBoxTotalPoints.Name = "txtBoxTotalPoints";
-			this.txtBoxTotalPoints.Size = new System.Drawing.Size(103, 20);
+			this.txtBoxTotalPoints.Size = new System.Drawing.Size(150, 30);
 			this.txtBoxTotalPoints.TabIndex = 63;
+			this.txtBoxTotalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(618, 289);
+			this.label1.BackColor = System.Drawing.SystemColors.WindowText;
+			this.label1.Font = new System.Drawing.Font("Magneto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(777, 101);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(72, 13);
+			this.label1.Size = new System.Drawing.Size(114, 18);
 			this.label1.TabIndex = 64;
 			this.label1.Text = "Player 1 Total";
 			// 
 			// txtBoxRollPoints
 			// 
-			this.txtBoxRollPoints.Location = new System.Drawing.Point(340, 358);
+			this.txtBoxRollPoints.BackColor = System.Drawing.SystemColors.WindowText;
+			this.txtBoxRollPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.txtBoxRollPoints.Font = new System.Drawing.Font("Magneto", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBoxRollPoints.ForeColor = System.Drawing.Color.OrangeRed;
+			this.txtBoxRollPoints.Location = new System.Drawing.Point(349, 379);
+			this.txtBoxRollPoints.MaximumSize = new System.Drawing.Size(190, 66);
+			this.txtBoxRollPoints.MinimumSize = new System.Drawing.Size(190, 66);
 			this.txtBoxRollPoints.Name = "txtBoxRollPoints";
-			this.txtBoxRollPoints.Size = new System.Drawing.Size(105, 20);
+			this.txtBoxRollPoints.Size = new System.Drawing.Size(190, 66);
 			this.txtBoxRollPoints.TabIndex = 65;
+			this.txtBoxRollPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label2
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(346, 340);
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Image = global::Zilch_Dice_Game.Properties.Resources.ThisRollsPoints;
+			this.label2.Location = new System.Drawing.Point(297, 337);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(94, 13);
+			this.label2.Size = new System.Drawing.Size(322, 37);
 			this.label2.TabIndex = 66;
-			this.label2.Text = "Current Roll Points";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(346, 394);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 13);
-			this.label3.TabIndex = 67;
-			this.label3.Text = "Turn Total Points";
 			// 
 			// Timer1
 			// 
@@ -438,12 +515,108 @@
 			// 
 			this.DiceTimer.Interval = 1000;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.BackColor = System.Drawing.SystemColors.WindowText;
+			this.label4.Font = new System.Drawing.Font("Magneto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.White;
+			this.label4.Location = new System.Drawing.Point(777, 155);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(117, 18);
+			this.label4.TabIndex = 69;
+			this.label4.Text = "Player 2 Total";
+			// 
+			// textBox1
+			// 
+			this.textBox1.BackColor = System.Drawing.SystemColors.WindowText;
+			this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.textBox1.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.ForeColor = System.Drawing.Color.OrangeRed;
+			this.textBox1.Location = new System.Drawing.Point(780, 176);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(150, 30);
+			this.textBox1.TabIndex = 68;
+			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// label3
+			// 
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Image = global::Zilch_Dice_Game.Properties.Resources.YourBankedPoints;
+			this.label3.Location = new System.Drawing.Point(297, 466);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(322, 37);
+			this.label3.TabIndex = 70;
+			// 
+			// label6
+			// 
+			this.label6.BackColor = System.Drawing.Color.Transparent;
+			this.label6.Image = global::Zilch_Dice_Game.Properties.Resources.die6;
+			this.label6.Location = new System.Drawing.Point(607, 62);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(99, 43);
+			this.label6.TabIndex = 76;
+			// 
+			// label5
+			// 
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.Image = global::Zilch_Dice_Game.Properties.Resources.die5;
+			this.label5.Location = new System.Drawing.Point(501, 62);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(102, 43);
+			this.label5.TabIndex = 75;
+			// 
+			// label7
+			// 
+			this.label7.BackColor = System.Drawing.Color.Transparent;
+			this.label7.Image = global::Zilch_Dice_Game.Properties.Resources.die4;
+			this.label7.Location = new System.Drawing.Point(393, 62);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(102, 43);
+			this.label7.TabIndex = 74;
+			// 
+			// label8
+			// 
+			this.label8.BackColor = System.Drawing.Color.Transparent;
+			this.label8.Image = global::Zilch_Dice_Game.Properties.Resources.die3;
+			this.label8.Location = new System.Drawing.Point(286, 62);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(101, 43);
+			this.label8.TabIndex = 73;
+			// 
+			// label9
+			// 
+			this.label9.BackColor = System.Drawing.Color.Transparent;
+			this.label9.Image = global::Zilch_Dice_Game.Properties.Resources.die2;
+			this.label9.Location = new System.Drawing.Point(178, 62);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(102, 43);
+			this.label9.TabIndex = 72;
+			// 
+			// label10
+			// 
+			this.label10.BackColor = System.Drawing.Color.Transparent;
+			this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
+			this.label10.Location = new System.Drawing.Point(73, 62);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(99, 43);
+			this.label10.TabIndex = 71;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(784, 556);
+			this.BackgroundImage = global::Zilch_Dice_Game.Properties.Resources.diceBack;
+			this.ClientSize = new System.Drawing.Size(1008, 729);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.label8);
+			this.Controls.Add(this.label9);
+			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.txtBoxRollPoints);
 			this.Controls.Add(this.label1);
@@ -472,6 +645,8 @@
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
+			this.MaximumSize = new System.Drawing.Size(1024, 768);
+			this.MinimumSize = new System.Drawing.Size(1024, 580);
 			this.Name = "Form1";
 			this.Text = "Zilch - The Dice Game";
 			((System.ComponentModel.ISupportInitialize)(this.picDice6)).EndInit();
@@ -523,7 +698,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtBoxRollPoints;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Timer Timer1;
 		private System.Windows.Forms.Timer Timer2;
 		private System.Windows.Forms.Timer Timer3;
@@ -531,6 +705,15 @@
 		private System.Windows.Forms.Timer Timer5;
 		private System.Windows.Forms.Timer Timer6;
 		private System.Windows.Forms.Timer DiceTimer;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label label10;
 	}
 }
 

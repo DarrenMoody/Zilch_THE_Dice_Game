@@ -12,6 +12,8 @@ namespace Zilch_Dice_Game {
 	public partial class Form1 : Form {   // AKA: the View
 
 		// static Global Form1 components
+		public static Player p1;
+		public static Player p2;
 		public static Button[] btnPoints;
 		public static Button[] keepBtns;
 		public static PictureBox[] diceBoxes;
