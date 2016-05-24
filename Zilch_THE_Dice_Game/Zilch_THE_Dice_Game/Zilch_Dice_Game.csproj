@@ -182,7 +182,6 @@
     <None Include="Resources\die3.png" />
     <None Include="Resources\die2.png" />
     <None Include="Resources\die1.png" />
-    <None Include="Resources\background.jpg" />
     <None Include="Resources\10000toWin.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

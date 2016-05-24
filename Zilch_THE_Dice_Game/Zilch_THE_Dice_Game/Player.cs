@@ -22,5 +22,9 @@ namespace Zilch_Dice_Game {
 			return p1total;
 		}
 
+		public int getP2Score() {
+			return p2total;
+		}
+
 	}
 }

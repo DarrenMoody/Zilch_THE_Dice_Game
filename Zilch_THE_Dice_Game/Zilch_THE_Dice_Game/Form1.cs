@@ -18,30 +18,21 @@ namespace Zilch_Dice_Game {
 		public static Button[] btnPoints;
 		public static Button[] keepBtns;
 		public static PictureBox[] diceBoxes;
-		public static TextBox totalPtsBox;
 		public static TextBox turnPtsBox;
-		public static TextBox rollPtsBox;
+		public static TextBox bankedPtsBox;
 		public static Button btnRoll;
 		public static Timer[] timers;
 		public Scoring score;
 		public Dice dice;
 		public static bool flag = false;
-
-		// ints needed for btnPoints1-5_Click methods
-		// need to be outside of the Click methods
-		int numClicks1 = 0; bool clicks1Odd = false;
-		int numClicks2 = 0; bool clicks2Odd = false;
-		int numClicks3 = 0; bool clicks3Odd = false;
-		int numClicks4 = 0; bool clicks4Odd = false;
-		int numClicks5 = 0; bool clicks5Odd = false;
-		int[] overLap;// = new int[4];
+		const int MAX = 6;
 
 		// Sounds for the fun of it 
 		// Only took 10 minutes
 		SoundPlayer bank = new SoundPlayer(Properties.Resources.ChaChing);
 		SoundPlayer roll1b = new SoundPlayer(Properties.Resources.smb_fireball);
 		SoundPlayer scoreBtns = new SoundPlayer(Properties.Resources.smb_jump);
-		SoundPlayer zilcher = new SoundPlayer(Properties.Resources.mariodie);
+		public static SoundPlayer zilcher = new SoundPlayer(Properties.Resources.mariodie);
 		SoundPlayer winner = new SoundPlayer(Properties.Resources.smb_win);
 		SoundPlayer rolled = new SoundPlayer(Properties.Resources.RollDiceHitTable);
 		SoundPlayer rolling = new SoundPlayer(Properties.Resources.ShakingDiceInHand);
@@ -50,49 +41,51 @@ namespace Zilch_Dice_Game {
 		public Form1() {
 			InitializeComponent();
 			btnRoll = rollBtn;
-			diceBoxes = new PictureBox[6] { picDice1, picDice2, picDice3,
+			diceBoxes = new PictureBox[MAX] { picDice1, picDice2, picDice3,
 											picDice4, picDice5, picDice6 };
-			keepBtns = new Button[6] { keep1Btn, keep2Btn, keep3Btn,
+			keepBtns = new Button[MAX] { keep1Btn, keep2Btn, keep3Btn,
 										keep4Btn, keep5Btn, keep6Btn };
-            keep1Btn.Enabled = false; // initially not enabled
-			keep2Btn.Enabled = false;
-			keep3Btn.Enabled = false;
-			keep4Btn.Enabled = false;
-			keep5Btn.Enabled = false;
-			keep6Btn.Enabled = false;
+            keepBtns[0].Enabled = false; // initially not enabled
+			keepBtns[1].Enabled = false;
+			keepBtns[2].Enabled = false;
+			keepBtns[3].Enabled = false;
+			keepBtns[4].Enabled = false;
+			keepBtns[5].Enabled = false;
 			btnPoints = new Button[5];
 			btnPoints[0] = btnPoints1;
 			btnPoints[1] = btnPoints2;
 			btnPoints[2] = btnPoints3;
 			btnPoints[3] = btnPoints4;
 			btnPoints[4] = btnPoints5;
-			btnPoints1.Enabled = false; // initially not enabled
-			btnPoints2.Enabled = false;
-			btnPoints3.Enabled = false;
-			btnPoints4.Enabled = false;
-			btnPoints5.Enabled = false;
-			btnPoints1.Visible = false; // or visible
-			btnPoints2.Visible = false;
-			btnPoints3.Visible = false;
-			btnPoints4.Visible = false;
-			btnPoints5.Visible = false;
-			totalPtsBox = txtBoxTotalPoints;
+			btnPoints[0].Enabled = false; // initially not enabled
+			btnPoints[1].Enabled = false;
+			btnPoints[2].Enabled = false;
+			btnPoints[3].Enabled = false;
+			btnPoints[4].Enabled = false;
+			btnPoints[0].Visible = false; // initially not enabled
+			btnPoints[1].Visible = false;
+			btnPoints[2].Visible = false;
+			btnPoints[3].Visible = false;
+			btnPoints[4].Visible = false;
 			turnPtsBox = txtBoxTurnPoints;
-			rollPtsBox = txtBoxRollPoints;
+			bankedPtsBox = txtBoxBankedPoints;
 			score = new Scoring();
 			dice = new Dice();
 			// Timers for dice roll effect
-			Timer1.Interval = 100;
-			Timer2.Interval = 100;
-			Timer3.Interval = 100;
-			Timer4.Interval = 100;
-			Timer5.Interval = 100;
-			Timer6.Interval = 100;
-			timers = new Timer[6] { Timer1, Timer2, Timer3,
+			timers = new Timer[MAX] { Timer1, Timer2, Timer3,
 									Timer4, Timer5, Timer6};
+			timers[0].Interval = 100;
+			timers[1].Interval = 100;
+			timers[2].Interval = 100;
+			timers[3].Interval = 100;
+			timers[4].Interval = 100;
+			timers[5].Interval = 100;
+			
 		}
 
 		private void btnDiceRoll_Click(object sender, EventArgs e) {
+			rolling.Play();
+			score.resetPoints();
 			flag = false;
 			Timer1_Tick(sender, e);
 			Timer2_Tick(sender, e);
@@ -102,14 +95,16 @@ namespace Zilch_Dice_Game {
 			Timer6_Tick(sender, e);
 
 			DiceTimer.Stop();
+			
 			DiceTimer.Tick += new EventHandler(letsRoll);
 			DiceTimer.Interval = (1000) * (1);
 			DiceTimer.Enabled = true;
 			DiceTimer.Start();
 			while (flag == false)
 				Application.DoEvents();
-			dice.RollDice(diceBoxes); // Rolls the dice and sets diceBoxes images
-			//score.scoringTraverse();
+			dice.RollDice(); // Rolls the dice and sets diceBoxes images
+							 //score.scoringTraverse();
+			rolled.Play();
 		}
 
 		public void letsRoll(object sender, EventArgs e) {
@@ -120,30 +115,31 @@ namespace Zilch_Dice_Game {
 			Timer5.Stop();
 			Timer6.Stop();
 			flag = true;
+			
 		}
 
 		private void keep1Btn_Click(object sender, EventArgs e) {
-			dice.keep(0, diceBoxes);
+			dice.keep(0);
 		}
 
 		private void keep2Btn_Click(object sender, EventArgs e) {
-			dice.keep(1, diceBoxes);
+			dice.keep(1);
 		}
 
 		private void keep3Btn_Click(object sender, EventArgs e) {
-			dice.keep(2, diceBoxes);
+			dice.keep(2);
 		}
 
 		private void keep4Btn_Click(object sender, EventArgs e) {
-			dice.keep(3, diceBoxes);
+			dice.keep(3);
 		}
 
 		private void keep5Btn_Click(object sender, EventArgs e) {
-			dice.keep(4, diceBoxes);
+			dice.keep(4);
 		}
 
 		private void keep6Btn_Click(object sender, EventArgs e) {
-			dice.keep(5, diceBoxes);
+			dice.keep(5);
 		}
 
 		public Button[] getPtsBtns() {
@@ -206,191 +202,29 @@ namespace Zilch_Dice_Game {
 			}
 		}
 
-		// Name: The btnPoints1_Click() Method
-		// Purpose: // TOGGLES ON AND OFF THE POINTS FOR BTNPOINTS1
-		// Parameters: object sender, EventArgs e
-		// Returns: none
 		private void btnPoints1_Click(object sender, EventArgs e) {
-			
 			scoreBtns.Play();
-			numClicks1++;
-
-			if (score.btnPointsCheck[0, 0] == 1) {
-				keep1Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[1, 0] == 2) {
-				keep2Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[2, 0] == 3) {
-				keep3Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[3, 0] == 4) {
-				keep4Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[4, 0] == 5) {
-				keep5Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[5, 0] == 6) {
-				keep6Btn.PerformClick();
-			}
-
-			if (numClicks1 % 2 == 1) {
-				score.totalTurnScore += score.scorePos[0];
-				clicks2Odd = true;
-			} else if (numClicks1 % 2 == 0) {
-				score.totalTurnScore -= score.scorePos[0];
-			}
-			string outStr = string.Format("{0}", score.totalTurnScore);
-			txtBoxTurnPoints.Text = outStr;
+			score.btnPtsClick(0);
 		}
 
-		// Name: The btnPoints2_Click() Method
-		// Purpose: // TOGGLES ON AND OFF THE POINTS FOR BTNPOINTS2
-		// Parameters: object sender, EventArgs e
-		// Returns: none
 		private void btnPoints2_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			numClicks2++;
-
-			if (score.btnPointsCheck[0, 1] == 1) {
-				keep1Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[1, 1] == 2) {
-				keep2Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[2, 1] == 3) {
-				keep3Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[3, 1] == 4) {
-				keep4Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[4, 1] == 5) {
-				keep5Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[5, 1] == 6) {
-				keep6Btn.PerformClick();
-			}
-
-			if (numClicks2 % 2 == 1) {
-				score.totalTurnScore += score.scorePos[1];
-				clicks2Odd = true;
-			} else if (numClicks2 % 2 == 0) {
-				score.totalTurnScore -= score.scorePos[1];
-			}
-			string outStr = string.Format("{0}", score.totalTurnScore);
-			txtBoxTurnPoints.Text = outStr;
+			score.btnPtsClick(1);
 		}
 
-		// Name: The btnPoints3_Click() Method
-		// Purpose: // TOGGLES ON AND OFF THE POINTS FOR BTNPOINTS3
-		// Parameters: object sender, EventArgs e
-		// Returns: none
 		private void btnPoints3_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			numClicks3++;
-
-			if (score.btnPointsCheck[0, 2] == 1) {
-				keep1Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[1, 2] == 2) {
-				keep2Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[2, 2] == 3) {
-				keep3Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[3, 2] == 4) {
-				keep4Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[4, 2] == 5) {
-				keep5Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[5, 2] == 6) {
-				keep6Btn.PerformClick();
-			}
-
-			if (numClicks3 % 2 == 1) {
-				score.totalTurnScore += score.scorePos[2];
-				clicks3Odd = true;
-			} else if (numClicks3 % 2 == 0) {
-				score.totalTurnScore -= score.scorePos[2];
-			}
-			string outStr = string.Format("{0}", score.totalTurnScore);
-			txtBoxTurnPoints.Text = outStr;
+			score.btnPtsClick(2);
 		}
 
-		// Name: The setsCounters() Method
-		// Purpose: // TOGGLES ON AND OFF THE POINTS FOR BTNPOINTS4
-		// Parameters: object sender, EventArgs e
-		// Returns: none
 		private void btnPoints4_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			numClicks4++;
-
-			if (score.btnPointsCheck[0, 3] == 1) {
-				keep1Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[1, 3] == 2) {
-				keep2Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[2, 3] == 3) {
-				keep3Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[3, 3] == 4) {
-				keep4Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[4, 3] == 5) {
-				keep5Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[5, 3] == 6) {
-				keep6Btn.PerformClick();
-			}
-
-			if (numClicks4 % 2 == 1) {
-				score.totalTurnScore += score.scorePos[3];
-				clicks4Odd = true;
-			} else if (numClicks4 % 2 == 0) {
-				score.totalTurnScore -= score.scorePos[3];
-			}
-			string outStr = string.Format("{0}", score.totalTurnScore);
-			txtBoxTurnPoints.Text = outStr;
+			score.btnPtsClick(3);
 		}
 
-		// Name: The setsCounters() Method
-		// Purpose: // TOGGLES ON AND OFF THE POINTS FOR BTNPOINTS5
-		// Parameters: object sender, EventArgs e
-		// Returns: none
 		private void btnPoints5_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			numClicks5++;
-
-			if (score.btnPointsCheck[0, 4] == 1) {
-				keep1Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[1, 4] == 2) {
-				keep2Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[2, 4] == 3) {
-				keep3Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[3, 4] == 4) {
-				keep4Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[4, 4] == 5) {
-				keep5Btn.PerformClick();
-			}
-			if (score.btnPointsCheck[5, 4] == 6) {
-				keep6Btn.PerformClick();
-			}
-
-			if (numClicks5 % 2 == 1) {
-				score.totalTurnScore += score.scorePos[4];
-				clicks5Odd = true;
-			} else if (numClicks5 % 2 == 0) {
-				score.totalTurnScore -= score.scorePos[4];
-			}
-			string outStr = string.Format("{0}", score.totalTurnScore);
-			txtBoxTurnPoints.Text = outStr;
+			score.btnPtsClick(4);
 		}
-
 	}
 }

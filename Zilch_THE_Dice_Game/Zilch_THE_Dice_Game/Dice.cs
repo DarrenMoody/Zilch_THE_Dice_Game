@@ -20,8 +20,6 @@ namespace Zilch_Dice_Game
 		// class constant variables
 		const int DICE_MAX = 6;         // Declare const int for dice number
 
-		Timer[] timers = Form1.timers;
-		Button[] keepBtns = Form1.keepBtns;
 		Image[] diceOnPics;
 		// public variables
 		public Random random;         // Declare variable for a random number
@@ -48,13 +46,13 @@ namespace Zilch_Dice_Game
 
 		// The keep() method
 		// Purpose: controls keep dice button functionality (highlight/remove highlight)
-		public void keep(int btnNum, PictureBox[] diceBoxes) {
-			for (int i = 0; i < 6; i++) {
+		public void keep(int btnNum) {
+			for (int i = 0; i < DICE_MAX; i++) {
 				if (btnNum == i && on[i] == false) { // if not on get on pic
-					diceBoxes[i].Image = diceOnPics[Dice.diceValues[i]];
+					Form1.diceBoxes[i].Image = diceOnPics[diceValues[i]];
 					on[i] = true;
 				} else if (btnNum == i && on[i] == true) { // if on, go back to off pic
-					diceBoxes[i].Image = Dice.dicePics[Dice.diceValues[i]];
+					Form1.diceBoxes[i].Image = dicePics[diceValues[i]];
 					on[i] = false;
 				}
 			}
@@ -65,14 +63,14 @@ namespace Zilch_Dice_Game
 		// Purpose: Gets Value of dice, counts number of each value, sets images on form1 picture boxes
 		// Parameters: None
 		// Returns: int[] dice values
-		public int[] RollDice(PictureBox[] pb) { // SETS COUNTERS HERE
+		public int[] RollDice() { // SETS COUNTERS HERE
 			
 			for (int i = 0; i < DICE_MAX; i++) {
 				if (on[i] == false) {
 					Form1.timers[i].Stop();
 					diceValues[i] = random.Next(0, DICE_MAX);
 					Scoring.diceCounter[diceValues[i]]++;
-					pb[i].Image = dicePics[diceValues[i]];
+					Form1.diceBoxes[i].Image = dicePics[diceValues[i]];
 				}
             }
 			enableKeepers();
@@ -84,7 +82,7 @@ namespace Zilch_Dice_Game
 		public void enableKeepers() {
 			for(int i = 0; i < 6; i++) {
 				if (on[i] == false)
-					keepBtns[i].Enabled = true;
+					Form1.keepBtns[i].Enabled = true;
 			}
 		}
 

@@ -60,9 +60,9 @@
 			this.rulesOfPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtBoxTurnPoints = new System.Windows.Forms.TextBox();
-			this.txtBoxTotalPoints = new System.Windows.Forms.TextBox();
+			this.txtBoxP1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.txtBoxRollPoints = new System.Windows.Forms.TextBox();
+			this.txtBoxBankedPoints = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.Timer1 = new System.Windows.Forms.Timer(this.components);
 			this.Timer2 = new System.Windows.Forms.Timer(this.components);
@@ -72,7 +72,7 @@
 			this.Timer6 = new System.Windows.Forms.Timer(this.components);
 			this.DiceTimer = new System.Windows.Forms.Timer(this.components);
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBoxP2 = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@
 			this.bankBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
 			this.bankBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.bankBtn.Font = new System.Drawing.Font("Magneto", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.bankBtn.Location = new System.Drawing.Point(327, 578);
+			this.bankBtn.Location = new System.Drawing.Point(346, 578);
 			this.bankBtn.Name = "bankBtn";
 			this.bankBtn.Size = new System.Drawing.Size(222, 67);
 			this.bankBtn.TabIndex = 13;
@@ -107,7 +107,7 @@
 			// 
 			this.rollBtn.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.rollBtn.Font = new System.Drawing.Font("Magneto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rollBtn.Location = new System.Drawing.Point(337, 262);
+			this.rollBtn.Location = new System.Drawing.Point(356, 262);
 			this.rollBtn.Name = "rollBtn";
 			this.rollBtn.Size = new System.Drawing.Size(212, 54);
 			this.rollBtn.TabIndex = 12;
@@ -290,7 +290,6 @@
 			this.btnPoints5.BackColor = System.Drawing.SystemColors.WindowText;
 			this.btnPoints5.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPoints5.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-			this.btnPoints5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.btnPoints5.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPoints5.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints5.Location = new System.Drawing.Point(45, 460);
@@ -299,13 +298,13 @@
 			this.btnPoints5.TabIndex = 60;
 			this.btnPoints5.Text = "btnPoints5";
 			this.btnPoints5.UseVisualStyleBackColor = false;
+			this.btnPoints5.Click += new System.EventHandler(this.btnPoints5_Click);
 			// 
 			// btnPoints4
 			// 
 			this.btnPoints4.BackColor = System.Drawing.SystemColors.WindowText;
 			this.btnPoints4.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPoints4.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-			this.btnPoints4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.btnPoints4.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPoints4.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints4.Location = new System.Drawing.Point(45, 414);
@@ -314,13 +313,13 @@
 			this.btnPoints4.TabIndex = 59;
 			this.btnPoints4.Text = "btnPoints4";
 			this.btnPoints4.UseVisualStyleBackColor = false;
+			this.btnPoints4.Click += new System.EventHandler(this.btnPoints4_Click);
 			// 
 			// btnPoints3
 			// 
 			this.btnPoints3.BackColor = System.Drawing.SystemColors.WindowText;
 			this.btnPoints3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPoints3.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-			this.btnPoints3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.btnPoints3.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPoints3.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints3.Location = new System.Drawing.Point(45, 368);
@@ -329,13 +328,13 @@
 			this.btnPoints3.TabIndex = 58;
 			this.btnPoints3.Text = "btnPoints3";
 			this.btnPoints3.UseVisualStyleBackColor = false;
+			this.btnPoints3.Click += new System.EventHandler(this.btnPoints3_Click);
 			// 
 			// btnPoints2
 			// 
 			this.btnPoints2.BackColor = System.Drawing.SystemColors.WindowText;
 			this.btnPoints2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPoints2.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-			this.btnPoints2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.btnPoints2.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPoints2.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints2.Location = new System.Drawing.Point(45, 322);
@@ -344,13 +343,13 @@
 			this.btnPoints2.TabIndex = 57;
 			this.btnPoints2.Text = "btnPoints2";
 			this.btnPoints2.UseVisualStyleBackColor = false;
+			this.btnPoints2.Click += new System.EventHandler(this.btnPoints2_Click);
 			// 
 			// btnPoints1
 			// 
 			this.btnPoints1.BackColor = System.Drawing.SystemColors.WindowText;
 			this.btnPoints1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPoints1.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-			this.btnPoints1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
 			this.btnPoints1.Font = new System.Drawing.Font("Magneto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPoints1.ForeColor = System.Drawing.Color.OrangeRed;
 			this.btnPoints1.Location = new System.Drawing.Point(45, 276);
@@ -359,6 +358,7 @@
 			this.btnPoints1.TabIndex = 56;
 			this.btnPoints1.Text = "btnPoints1";
 			this.btnPoints1.UseVisualStyleBackColor = false;
+			this.btnPoints1.Click += new System.EventHandler(this.btnPoints1_Click);
 			// 
 			// menuStrip1
 			// 
@@ -434,23 +434,23 @@
 			this.txtBoxTurnPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
 			this.txtBoxTurnPoints.Font = new System.Drawing.Font("Magneto", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtBoxTurnPoints.ForeColor = System.Drawing.Color.OrangeRed;
-			this.txtBoxTurnPoints.Location = new System.Drawing.Point(349, 506);
+			this.txtBoxTurnPoints.Location = new System.Drawing.Point(368, 377);
 			this.txtBoxTurnPoints.Name = "txtBoxTurnPoints";
 			this.txtBoxTurnPoints.Size = new System.Drawing.Size(190, 66);
 			this.txtBoxTurnPoints.TabIndex = 62;
 			this.txtBoxTurnPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// txtBoxTotalPoints
+			// txtBoxP1
 			// 
-			this.txtBoxTotalPoints.BackColor = System.Drawing.SystemColors.WindowText;
-			this.txtBoxTotalPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.txtBoxTotalPoints.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBoxTotalPoints.ForeColor = System.Drawing.Color.OrangeRed;
-			this.txtBoxTotalPoints.Location = new System.Drawing.Point(780, 122);
-			this.txtBoxTotalPoints.Name = "txtBoxTotalPoints";
-			this.txtBoxTotalPoints.Size = new System.Drawing.Size(150, 30);
-			this.txtBoxTotalPoints.TabIndex = 63;
-			this.txtBoxTotalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.txtBoxP1.BackColor = System.Drawing.SystemColors.WindowText;
+			this.txtBoxP1.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.txtBoxP1.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBoxP1.ForeColor = System.Drawing.Color.OrangeRed;
+			this.txtBoxP1.Location = new System.Drawing.Point(780, 122);
+			this.txtBoxP1.Name = "txtBoxP1";
+			this.txtBoxP1.Size = new System.Drawing.Size(150, 30);
+			this.txtBoxP1.TabIndex = 63;
+			this.txtBoxP1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label1
 			// 
@@ -464,19 +464,19 @@
 			this.label1.TabIndex = 64;
 			this.label1.Text = "Player 1 Total";
 			// 
-			// txtBoxRollPoints
+			// txtBoxBankedPoints
 			// 
-			this.txtBoxRollPoints.BackColor = System.Drawing.SystemColors.WindowText;
-			this.txtBoxRollPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.txtBoxRollPoints.Font = new System.Drawing.Font("Magneto", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBoxRollPoints.ForeColor = System.Drawing.Color.OrangeRed;
-			this.txtBoxRollPoints.Location = new System.Drawing.Point(349, 379);
-			this.txtBoxRollPoints.MaximumSize = new System.Drawing.Size(190, 66);
-			this.txtBoxRollPoints.MinimumSize = new System.Drawing.Size(190, 66);
-			this.txtBoxRollPoints.Name = "txtBoxRollPoints";
-			this.txtBoxRollPoints.Size = new System.Drawing.Size(190, 66);
-			this.txtBoxRollPoints.TabIndex = 65;
-			this.txtBoxRollPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.txtBoxBankedPoints.BackColor = System.Drawing.SystemColors.WindowText;
+			this.txtBoxBankedPoints.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.txtBoxBankedPoints.Font = new System.Drawing.Font("Magneto", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtBoxBankedPoints.ForeColor = System.Drawing.Color.OrangeRed;
+			this.txtBoxBankedPoints.Location = new System.Drawing.Point(368, 506);
+			this.txtBoxBankedPoints.MaximumSize = new System.Drawing.Size(190, 66);
+			this.txtBoxBankedPoints.MinimumSize = new System.Drawing.Size(190, 66);
+			this.txtBoxBankedPoints.Name = "txtBoxBankedPoints";
+			this.txtBoxBankedPoints.Size = new System.Drawing.Size(190, 66);
+			this.txtBoxBankedPoints.TabIndex = 65;
+			this.txtBoxBankedPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label2
 			// 
@@ -527,17 +527,17 @@
 			this.label4.TabIndex = 69;
 			this.label4.Text = "Player 2 Total";
 			// 
-			// textBox1
+			// textBoxP2
 			// 
-			this.textBox1.BackColor = System.Drawing.SystemColors.WindowText;
-			this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.textBox1.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.ForeColor = System.Drawing.Color.OrangeRed;
-			this.textBox1.Location = new System.Drawing.Point(780, 176);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(150, 30);
-			this.textBox1.TabIndex = 68;
-			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.textBoxP2.BackColor = System.Drawing.SystemColors.WindowText;
+			this.textBoxP2.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.textBoxP2.Font = new System.Drawing.Font("Magneto", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBoxP2.ForeColor = System.Drawing.Color.OrangeRed;
+			this.textBoxP2.Location = new System.Drawing.Point(780, 176);
+			this.textBoxP2.Name = "textBoxP2";
+			this.textBoxP2.Size = new System.Drawing.Size(150, 30);
+			this.textBoxP2.TabIndex = 68;
+			this.textBoxP2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label3
 			// 
@@ -616,11 +616,11 @@
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.textBoxP2);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.txtBoxRollPoints);
+			this.Controls.Add(this.txtBoxBankedPoints);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.txtBoxTotalPoints);
+			this.Controls.Add(this.txtBoxP1);
 			this.Controls.Add(this.txtBoxTurnPoints);
 			this.Controls.Add(this.btnPoints5);
 			this.Controls.Add(this.btnPoints4);
@@ -694,9 +694,9 @@
 		private System.Windows.Forms.ToolStripMenuItem rulesOfPlayToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.TextBox txtBoxTurnPoints;
-		private System.Windows.Forms.TextBox txtBoxTotalPoints;
+		private System.Windows.Forms.TextBox txtBoxP1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txtBoxRollPoints;
+		private System.Windows.Forms.TextBox txtBoxBankedPoints;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Timer Timer1;
 		private System.Windows.Forms.Timer Timer2;
@@ -706,7 +706,7 @@
 		private System.Windows.Forms.Timer Timer6;
 		private System.Windows.Forms.Timer DiceTimer;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBoxP2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
