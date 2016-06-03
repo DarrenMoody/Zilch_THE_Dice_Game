@@ -19,19 +19,29 @@ namespace Zilch_Dice_Game {
 		Dice dice;
 
 		// Other Arrays
-		int[] numClicks;
+		public static int[] numClicks;
 		//Button[] btnPoints = Form1.btnPoints;
 		//Button[] keepBtns = Form1.keepBtns;
 		//int[] diceValues = Dice.diceValues;
-		public int[] scorePos;
-		public int[,] btnPointsCheck;
-		bool[] clicksOdd;
-		public int totalTurnScore;
+		public static int[,] btnPointsCheck;
+		public static bool[] clicksOdd;
+		public static int totalTurnScore;
 		private int totalGameScore = 0;
-		private int[] playerScore = new int[2];
-		bool[] printed = new bool[16];
+		//private int[] playerScore = new int[2];
+		
+
+
+		public Scoring() {
+			diceCounter = new int[6] { 0, 0, 0, 0, 0, 0 };
+			numClicks = new int[5];
+			clicksOdd = new bool[5] { false, false, false, false, false };
+			totalTurnScore = 0;
+			// Used to enable auto-click of keep buttons involving a points set.
+			btnPointsCheck = new int[6, 5];
+		}
+
 		// Boolean variables declared for testing the state of a set of dice
-		bool sixKind = false, fiveKind = false, fourKind = false, threeKind = false,
+		public static bool sixKind = false, fiveKind = false, fourKind = false, threeKind = false,
 			 second3Kind = false, straight = false, fullHouse = false, threePair = false,
 			 sixOnes = false, fiveOnes = false, fourOnes = false, threeOnes = false,
 			 twoOnes = false, oneOne = false, twoFives = false, oneFive = false, zilch = false;
@@ -43,25 +53,15 @@ namespace Zilch_Dice_Game {
 		// Integer variables declared to hold the dices face values for a 3-of-a-kind etc.
 		int value6Kind = 0, value5Kind = 0, value4Kind = 0, value3Kind = 0, value23Kind = 0,
 			fhVal2 = 0, fhVal1 = 0;
-
-
-		public Scoring() {
-			diceCounter = new int[6] { 0, 0, 0, 0, 0, 0 };
-			numClicks = new int[5] { 0, 0, 0, 0, 0 };
-			scorePos = new int[6] { 0, 0, 0, 0, 0, 0 };
-			clicksOdd = new bool[5] { false, false, false, false, false };
-			totalTurnScore = 0;
-			// Used to enable auto-click of keep buttons involving a points set.
-			btnPointsCheck = new int[6, 5];
-		}
-
+		public static int[] scorePos = new int[6];
+		
 		// Name: The scoringTraverse() Method
 		// Purpose: Traverses the dice values to find score types
 		//          and assign them to one of the btnPoints1-5
 		// Parameters: none
 		// Returns: none
 		// Note: This will be chopped into several smaller methods in future versions
-		public void scoringTraverse() { // DARREN - ***********************
+		public void scoringTraverse() {
 
 			/*  ************** SCORING POSSIBILITIES **************
             1.	Straight (dice = 1, 2, 3, 4, 5, 6) = 1500 pts.
@@ -88,8 +88,7 @@ namespace Zilch_Dice_Game {
 					diceCounter[2] == 1 &&
 					diceCounter[3] == 1 &&
 					diceCounter[4] == 1 &&
-					diceCounter[5] == 1) // One of each value, STRAIGHT
-				{
+					diceCounter[5] == 1) {// One of each value, STRAIGHT
 					straight = true;
 				} else if (diceCounter[i] == 2) {
 					for (int j = i + 1; j < diceCounter.Length; j++) {
@@ -100,115 +99,120 @@ namespace Zilch_Dice_Game {
 							}
 						}
 					}
-				} else if (diceCounter[i] == 3) // Three of one value
-				  {
+				} else if (diceCounter[i] == 3) {// Three of one value
+
 					threeKind = true;
 					value3Kind = i + 1;
 					fhVal1 = i + 1;
 					points3Kind = value3Kind * 100; // Calc score of threeKind
-					if (value3Kind == 1) // If 1s then threeOnes
-					{
+					if (value3Kind == 1) {// If 1s then threeOnes
+
 						threeOnes = true;
 						threeKind = false;
 					}
 					for (int j = 0; j < diceCounter.Length; j++) {
 						if (j != i) {
-							if (diceCounter[j] == 2) // If a triple and a pair, fullHouse (750 pts)
-							{
+							if (diceCounter[j] == 2) {// If a triple and a pair, fullHouse (750 pts)
+
 								fullHouse = true;
 								fhVal2 = j + 1;
-							} else if (diceCounter[j] == 3) // Or if another triple, still fullHouse
-							  {                             // and also second3Kind  
+							} else if (diceCounter[j] == 3) {// Or if another triple, still fullHouse
+															 // and also second3Kind  
 								fullHouse = true;
 								fhVal2 = j + 1;
 								second3Kind = true;
 								value23Kind = j + 1;
 								points23Kind = value23Kind * 100; // Calc score of second3Kind
-								if (value3Kind == 1) // Or if 1s then threeOnes instead (1000 pts)
-								{
+								if (value3Kind == 1) {// Or if 1s then threeOnes instead (1000 pts)
+
 									threeOnes = true;
 									second3Kind = false;
 								}
 							}
 						}
 					}
-				} else if (diceCounter[i] == 4) // 4 of one value
-				  {
+				} else if (diceCounter[i] == 4) {// 4 of one value
+
 					fourKind = true;
 					value4Kind = i + 1;
 					fhVal1 = i + 1;
 					points4Kind = (value4Kind * 100) + (100 * 1); // Calc score of fourKind
-					if (value4Kind == 1) // Or if 4 ones, fourOnes instead (1100 pts)
-					{
+					if (value4Kind == 1) {// Or if 4 ones, fourOnes instead (1100 pts)
+
 						fourKind = false;
 						fourOnes = true;
 					}
 					for (int j = 0; j < diceCounter.Length; j++) {
-						if (diceCounter[j] == 2) // Full House if a pair also
-						{
+						if (diceCounter[j] == 2) {// Full House if a pair also
+
 							fullHouse = true;
 							fhVal2 = j;
 							threePair = true; // Set of 4 and set of 2 can also count as threePair (1500 pts)
 						}
 					}
-				} else if (diceCounter[i] == 5) // 5 of one value
-				  {
+				} else if (diceCounter[i] == 5) {// 5 of one value
+
 					fiveKind = true;
 					value5Kind = i + 1;
 					points5Kind = (value5Kind * 100) + (100 * 2); // Calc score of fiveKind
 					fullHouse = true; // 5 of a kind can also count as fullHouse (750 pts)
-					if (value4Kind == 1) // Or if 5 ones, then fiveOnes instead (1200 pts)
-					{
+					if (value4Kind == 1) {// Or if 5 ones, then fiveOnes instead (1200 pts)
+
 						fiveOnes = true;
 						fiveKind = false;
 					}
-				} else if (diceCounter[i] == 6) // 6 of one value
-				  {
+				} else if (diceCounter[i] == 6) {// 6 of one value
+
 					threePair = true; // threePair is always preferable (1500 pts)
 					value6Kind = i + 1;
-					if (value6Kind == 1) // Unless it's 6 ones, sixOnes instead (2000 pts)
-					{
+					if (value6Kind == 1) {// Unless it's 6 ones, sixOnes instead (2000 pts)
+
 						//sixKind = false;
 						sixOnes = true;
 					}
-				} else if (diceCounter[0] == 0 &&
-						   diceCounter[4] == 0 &&
-						   sixKind == false && fiveKind == false && fourKind == false &&
-						   straight == false && fullHouse == false && threeKind == false &&
-						   threePair == false && second3Kind == false) {   // Zilch! if there's nothing worth any points on a roll
+				}
+				if (diceCounter[0] == 2) {// Two ones
+					twoOnes = true;
+				}
+				if (diceCounter[0] == 1) {// One one
+
+					oneOne = true;
+				}
+				if (diceCounter[4] == 2) {// Two fives
+
+					twoFives = true;
+				}
+				if (diceCounter[4] == 1) {// One five
+
+					oneFive = true;
+				}
+				if (sixKind == false && fiveKind == false && fourKind == false &&
+				straight == false && fullHouse == false && threeKind == false &&
+				threePair == false && second3Kind == false && twoOnes == false &&
+				oneOne == false && twoFives == false && oneFive == false) {   // Zilch! if there's nothing worth any points on a roll
 					zilch = true;
 				}
 			}
+			popUpScoreBtns();
+		} 
 
-			if (diceCounter[0] == 2) // Two ones
-			{
-				twoOnes = true;
-			}
-			if (diceCounter[0] == 1) // One one
-			{
-				oneOne = true;
-			}
-			if (diceCounter[4] == 2) // Two fives
-			{
-				twoFives = true;
-			}
-			if (diceCounter[4] == 1) // One five
-			{
-				oneFive = true;
-			}
+
+
+
+		private void popUpScoreBtns() {
 			// 2 ints needed for assigning fullHouse dice positions
 			int fhPairCounter = 0, fhTripleCounter = 0;
 			// (prob don't need this) int[] scoreType = new int[5];
-			
+			bool[] printed = new bool[16];
+
 			for (int i = 0; i < 16; i++) {
 				printed[i] = false;
 			}
 
 			for (int i = 0; i < 6; i++) {
 				if (zilch) {
-					/*Form1.btnPoints[i].Enabled = true;
-                    Form1.btnPoints[i].Visible = true;
-                    Form1.btnPoints[i].Text = "ZILCH!";*/
+					Form1.rolled.Play();
+					Form1.zilcher.Play();
 					MessageBox.Show("ZILCH!\nYOU LOST IT ALL SUCKA!!!",
 						"ZILCH! ZILCH! ZILCH! ZILCH! ZILCH! ZILCH! ZILCH!",
 						MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -484,8 +488,8 @@ namespace Zilch_Dice_Game {
 				break;
 			}
 		}
-
-		public void btnPtsClick(int i) {
+	
+		/*public void btnPtsClick(int i) {
 			numClicks[i]++;
 
 			if (btnPointsCheck[0, i] == 1) {
@@ -515,7 +519,7 @@ namespace Zilch_Dice_Game {
 			}
 			string outStr = string.Format("{0}", totalTurnScore);
 			Form1.turnPtsBox.Text = outStr;
-		}
+		}*/
 
 		
 
@@ -527,7 +531,6 @@ namespace Zilch_Dice_Game {
 		// instead of creating a new form each time seems logical...
 		// I want the main form1 to last for the lifetime of a game.
 		private void Zilch() {
-			Form1.zilcher.Play();
 			resetTurn();
 			resetPoints();
 			totalTurnScore = 0;
@@ -625,10 +628,6 @@ namespace Zilch_Dice_Game {
 			numClicks[2] = 0;
 			numClicks[3] = 0;
 			numClicks[4] = 0;
-
-			for (int i = 0; i < 16; i++) {
-				printed[i] = false;
-			}
 		}
 		 
 		public void resetTurn() {
@@ -638,7 +637,6 @@ namespace Zilch_Dice_Game {
 			Form1.keepBtns[3].Enabled = false;
 			Form1.keepBtns[4].Enabled = false;
 			Form1.keepBtns[5].Enabled = false;
-			
 			Dice.on[0] = false;
 			Dice.on[1] = false;
 			Dice.on[2] = false;

@@ -37,6 +37,7 @@ namespace Zilch_Dice_Game
 			dicePics = new Image[6] { Properties.Resources.Dice1, Properties.Resources.Dice2,
 										Properties.Resources.Dice3, Properties.Resources.Dice4,
 										Properties.Resources.Dice5, Properties.Resources.Dice6 };
+
 			diceOnPics = new Image[6] {Properties.Resources.Dice1On, Properties.Resources.Dice2On,
 										Properties.Resources.Dice3On, Properties.Resources.Dice4On,
 										Properties.Resources.Dice5On, Properties.Resources.Dice6On };
@@ -56,7 +57,6 @@ namespace Zilch_Dice_Game
 					on[i] = false;
 				}
 			}
-
 		}
 
 		// The RollDice() method
@@ -67,7 +67,7 @@ namespace Zilch_Dice_Game
 			
 			for (int i = 0; i < DICE_MAX; i++) {
 				if (on[i] == false) {
-					Form1.timers[i].Stop();
+					//Form1.timers[i].Stop();
 					diceValues[i] = random.Next(0, DICE_MAX);
 					Scoring.diceCounter[diceValues[i]]++;
 					Form1.diceBoxes[i].Image = dicePics[diceValues[i]];

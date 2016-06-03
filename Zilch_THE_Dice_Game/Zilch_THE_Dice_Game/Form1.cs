@@ -34,7 +34,7 @@ namespace Zilch_Dice_Game {
 		SoundPlayer scoreBtns = new SoundPlayer(Properties.Resources.smb_jump);
 		public static SoundPlayer zilcher = new SoundPlayer(Properties.Resources.mariodie);
 		SoundPlayer winner = new SoundPlayer(Properties.Resources.smb_win);
-		SoundPlayer rolled = new SoundPlayer(Properties.Resources.RollDiceHitTable);
+		public static SoundPlayer rolled = new SoundPlayer(Properties.Resources.RollDiceHitTable);
 		SoundPlayer rolling = new SoundPlayer(Properties.Resources.ShakingDiceInHand);
 		SoundPlayer noBank = new SoundPlayer(Properties.Resources.smb_bump);
 
@@ -104,7 +104,8 @@ namespace Zilch_Dice_Game {
 				Application.DoEvents();
 			dice.RollDice(); // Rolls the dice and sets diceBoxes images
 							 //score.scoringTraverse();
-			rolled.Play();
+			if (!Scoring.zilch)
+				rolled.Play();
 		}
 
 		public void letsRoll(object sender, EventArgs e) {
@@ -204,27 +205,59 @@ namespace Zilch_Dice_Game {
 
 		private void btnPoints1_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			score.btnPtsClick(0);
+			btnPtsClick(sender, e, 0);
 		}
 
 		private void btnPoints2_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			score.btnPtsClick(1);
+			btnPtsClick(sender, e, 1);
 		}
 
 		private void btnPoints3_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			score.btnPtsClick(2);
+			btnPtsClick(sender, e, 2);
 		}
 
 		private void btnPoints4_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			score.btnPtsClick(3);
+			btnPtsClick(sender, e, 3);
 		}
 
 		private void btnPoints5_Click(object sender, EventArgs e) {
 			scoreBtns.Play();
-			score.btnPtsClick(4);
+			btnPtsClick(sender, e, 4);
+		}
+
+		public void btnPtsClick(object sender, EventArgs e, int i) {
+			Scoring.numClicks[i]++;
+
+			if (Scoring.btnPointsCheck[0, i] == 1) {
+				keep1Btn.PerformClick();//btnPoints1_Click(sender, e);
+			}
+			if (Scoring.btnPointsCheck[1, i] == 2) {
+				keep2Btn.PerformClick();//btnPoints2_Click(sender, e);
+			}
+			if (Scoring.btnPointsCheck[2, i] == 3) {
+				keep3Btn.PerformClick();//btnPoints3_Click(sender, e);
+			}
+			if (Scoring.btnPointsCheck[3, i] == 4) {
+				keep4Btn.PerformClick();//btnPoints4_Click(sender, e);
+			}
+			if (Scoring.btnPointsCheck[4, i] == 5) {
+				keep5Btn.PerformClick();//btnPoints5_Click(sender, e);
+			}
+			if (Scoring.btnPointsCheck[5, i] == 6) {
+				keep6Btn.PerformClick();//  _Click(sender, e);
+			}
+
+			if (Scoring.numClicks[i] % 2 == 1) {
+				Scoring.totalTurnScore += Scoring.scorePos[i];
+				Scoring.clicksOdd[i] = true;
+			} else if (Scoring.numClicks[i] % 2 == 0) {
+				Scoring.totalTurnScore -= Scoring.scorePos[i];
+			}
+			string outStr = string.Format("{0}", Scoring.totalTurnScore);
+			Form1.turnPtsBox.Text = outStr;
 		}
 	}
 }
