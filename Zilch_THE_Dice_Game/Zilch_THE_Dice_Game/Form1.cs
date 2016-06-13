@@ -85,7 +85,7 @@ namespace Zilch_Dice_Game {
 
 		private void btnDiceRoll_Click(object sender, EventArgs e) {
 			rolling.Play();
-			score.resetPoints();
+			//score.resetPoints();
 			flag = false;
 			Timer1_Tick(sender, e);
 			Timer2_Tick(sender, e);
